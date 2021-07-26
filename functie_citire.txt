@@ -1,0 +1,9 @@
+import boto3
+s3 = boto3.client('s3')
+def lambda_handler(event, context):
+	bucket = 'bucketul-cu-functia'
+	key = 'ceva.txt'
+
+	response = s3.get_object(Bucket=bucket, Key=key)
+	content = response["Body"]
+	print(content.read())
